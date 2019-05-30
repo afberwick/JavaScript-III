@@ -51,9 +51,10 @@ GameObject.prototype.destroy = function() {
   return `${this.newName} was removed from the game.`;
 }
 
-function CharacterStats(gameObjectAttributes) {
+function CharacterStats(characterStatsAttributes) {
   GameObject.call(this, characterStatsAttributes);
   this.newHealthPoints = characterStatsAttributes.healthPoints;
+  console.log(this);
 }
 
 CharacterStats.prototype = Object.create(GameObject.prototype);
@@ -64,11 +65,12 @@ CharacterStats.prototype.takeDamage = function(){
   return `${this.newName} took damage`; 
 }
 
-function Humanoid(characterStatsAttributes) {
-  CharacterStats.call(this, humanoidAttributes);
-  this.newTeam = humanoidattributes.team;
-  this.newLanguage = humanoidattributes.language;
-  this.newWeapons = humanoidattributes.weapons;
+
+function Humanoid(humanoidAttributes) {
+  GameObject.call(this, humanoidAttributes);
+  this.newTeam = humanoidAttributes.team;
+  this.newLanguage = humanoidAttributes.language;
+  this.newWeapons = humanoidAttributes.weapons;
   console.log(this);
 }
 
